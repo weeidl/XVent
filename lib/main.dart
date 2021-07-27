@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'XVent',
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        primarySwatch: Colors.amber,
       ),
       home: LoginScreen(),
     );
