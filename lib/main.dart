@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:xvent/register/login_screen.dart';
+import 'package:xvent/screen/register/login_screen.dart';
 
 void main() {
   runApp(MyApp());
