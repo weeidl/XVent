@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:xvent/screen/register/login_screen.dart';
+import 'package:xvent/screens/landing.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: LoginScreen(),
+      home: Landing(),
     );
   }
 }
