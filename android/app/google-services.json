@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "399503304186",
+    "project_id": "weeidl-xvent",
+    "storage_bucket": "weeidl-xvent.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:399503304186:android:5d809a7d42ad244792f043",
+        "android_client_info": {
+          "package_name": "weeidl.com.xvent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "399503304186-jb9slpjv45rnfpai2v6jq3im2p80hrvl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZgKLMKNf04YQ31sV3yfYxc3Ka3-BsLJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "399503304186-jb9slpjv45rnfpai2v6jq3im2p80hrvl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

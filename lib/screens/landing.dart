@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:xvent/screens/home.dart';
-import 'package:xvent/screens/register/login_screen.dart';
+import 'package:xvent/screens/login_screen.dart';
 
 class Landing extends StatelessWidget {
   const Landing({Key? key}) : super(key: key);
@@ -8,6 +7,6 @@ class Landing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool isLoadingIn = false;
-    return isLoadingIn ? Home() : LoginScreen();
+    return isLoadingIn ? LoginScreen() : LoginScreen();
   }
 }

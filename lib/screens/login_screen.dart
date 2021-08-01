@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:xvent/screens/home.dart';
+import 'package:xvent/home.dart';
 import 'package:xvent/screens/register/auth.dart';
+import 'package:xvent/screens/register/login.dart';
 import 'package:xvent/theme/colors.dart';
 import 'package:xvent/widgets/button.dart';
 
@@ -33,7 +34,8 @@ class LoginScreen extends StatelessWidget {
                 text: 'Войти',
                 buttonColor: XVentColor.yellow,
                 onPressed: () {
-                  print('Hello');
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AuthLogin()));
                 },
               ),
             ),
@@ -45,8 +47,8 @@ class LoginScreen extends StatelessWidget {
                 text: 'Регистрация',
                 buttonColor: XVentColor.yellow,
                 onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Auth()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AuthRegister()));
                 },
               ),
             ),
@@ -58,8 +60,8 @@ class LoginScreen extends StatelessWidget {
                 text: 'Войти как гость',
                 buttonColor: XVentColor.yellow,
                 onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Home()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomePage()));
                 },
               ),
             ),

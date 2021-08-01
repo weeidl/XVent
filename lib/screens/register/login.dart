@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:xvent/home.dart';
 import 'package:xvent/services/auth.dart';
 import 'package:xvent/theme/colors.dart';
 import 'package:xvent/widgets/button.dart';
 
-class AuthRegister extends StatefulWidget {
+class AuthLogin extends StatefulWidget {
   @override
-  _AuthRegisterState createState() => _AuthRegisterState();
+  _AuthLoginState createState() => _AuthLoginState();
 }
 
-class _AuthRegisterState extends State<AuthRegister> {
+class _AuthLoginState extends State<AuthLogin> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
@@ -78,11 +79,11 @@ class _AuthRegisterState extends State<AuthRegister> {
                 onPressed: () {
                   print(_emailController.text);
                   print(_passwordController.text);
-                  createUser();
+                  singInUser();
                 },
               ),
               Button(
-                text: 'Auth',
+                text: 'Login',
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -94,15 +95,17 @@ class _AuthRegisterState extends State<AuthRegister> {
     );
   }
 
-  void createUser() async {
-    dynamic result = await _auth.createNewUser(
-        _emailController.text, _passwordController.text);
-    if (result == null) {
-      print('Email is not valid');
+  void singInUser() async {
+    dynamic authResult =
+        await _auth.loginUser(_emailController.text, _passwordController.text);
+    if (authResult == null) {
+      print('Sing in error');
     } else {
-      print(result.toString());
-      _emailController.clear();
-      _passwordController.clear();
+      // _emailController.clear();
+      // _passwordController.clear();
+      print('Sing in Successful');
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => HomePage()));
     }
   }
 }
