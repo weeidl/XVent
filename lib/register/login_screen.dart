@@ -8,7 +8,7 @@ class LoginScreen extends StatelessWidget {
     return Material(
       child: Container(
         child: Center(
-          child: Text('LoginScreen'),
+          child: Text('XVent LoginScreen'),
         ),
       ),
     );
