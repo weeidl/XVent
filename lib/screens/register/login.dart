@@ -29,31 +29,29 @@ class _AuthLoginState extends State<AuthLogin> {
 
   Widget _inputForm(Icon icon, String hint, TextEditingController controller,
       bool obscureText) {
-    return Container(
-      padding: EdgeInsets.only(left: 28, right: 28),
-      child: TextField(
-        controller: controller,
-        obscureText: obscureText,
-        style: TextStyle(fontSize: 20, color: XVentColor.white),
-        decoration: InputDecoration(
-          hintStyle: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-            color: XVentColor.white,
-          ),
-          hintText: hint,
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: XVentColor.white, width: 3),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: XVentColor.yellow, width: 1),
-          ),
-          prefixIcon: Padding(
-            padding: EdgeInsets.only(left: 10, right: 10),
-            child: IconTheme(
-              data: IconThemeData(color: XVentColor.white),
-              child: icon,
-            ),
+    return TextField(
+      controller: controller,
+      obscureText: obscureText,
+      style: TextStyle(fontSize: 18, color: XVentColor.textColor),
+      decoration: InputDecoration(
+        // fillColor: XVentColor.gray,
+        // filled: true,
+        hintStyle: TextStyle(
+          fontSize: 18,
+          color: XVentColor.textColorHint,
+        ),
+        hintText: hint,
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: XVentColor.white, width: 3),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: XVentColor.white, width: 1),
+        ),
+        prefixIcon: Padding(
+          padding: EdgeInsets.only(left: 10, right: 10),
+          child: IconTheme(
+            data: IconThemeData(color: XVentColor.textColor),
+            child: icon,
           ),
         ),
       ),
@@ -66,29 +64,46 @@ class _AuthLoginState extends State<AuthLogin> {
       backgroundColor: XVentColor.background,
       body: Center(
         child: Container(
-          child: Column(
-            children: [
-              SizedBox(height: 160),
-              _inputForm(Icon(Icons.email), 'EMAIL', _emailController, false),
-              SizedBox(height: 20),
-              _inputForm(
-                  Icon(Icons.password), 'PASSWORD', _passwordController, true),
-              SizedBox(height: 20),
-              Button(
-                text: 'Login User',
-                onPressed: () {
-                  print(_emailController.text);
-                  print(_passwordController.text);
-                  singInUser();
-                },
-              ),
-              Button(
-                text: 'Login',
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ],
+          padding: EdgeInsets.only(right: 28, left: 28),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                // Button(
+                //   text: 'Login',
+                //   onPressed: () {
+                //     Navigator.pop(context);
+                //   },
+                // ),
+                // SizedBox(height: 132),
+
+                Text(
+                  'ВОЙТИ',
+                  style: TextStyle(
+                      fontSize: 48,
+                      color: XVentColor.white,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 16),
+                Text(
+                  'Введите свой логин и пароль',
+                  style: TextStyle(color: XVentColor.white),
+                ),
+                SizedBox(height: 120),
+                _inputForm(Icon(Icons.email), 'Почта', _emailController, false),
+                SizedBox(height: 20),
+                _inputForm(
+                    Icon(Icons.password), 'Пароль', _passwordController, true),
+                SizedBox(height: 54),
+                Button(
+                  text: 'Войти',
+                  height: 60,
+                  width: double.infinity,
+                  onPressed: () {
+                    singInUser();
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

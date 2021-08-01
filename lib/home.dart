@@ -1,3 +1,4 @@
+import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:xvent/services/auth.dart';
 import 'package:xvent/theme/colors.dart';
@@ -11,6 +12,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  DateTime _selectedValue = DateTime.now();
+  DatePickerController _controller = DatePickerController();
   final Auth _auth = Auth();
   @override
   Widget build(BuildContext context) {
@@ -19,12 +22,41 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           SizedBox(height: 100),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                DatePicker(
+                  DateTime.now(),
+                  initialSelectedDate: DateTime.now(),
+                  monthTextStyle: TextStyle(color: XVentColor.white),
+                  dateTextStyle: TextStyle(color: XVentColor.white),
+                  dayTextStyle: TextStyle(color: XVentColor.white),
+                  selectionColor: XVentColor.yellow,
+                  selectedTextColor: XVentColor.black,
+                  deactivatedColor: XVentColor.black,
+                  controller: _controller,
+                  locale: 'ru_RU',
+                  onDateChange: (date) {
+                    // New date selected
+                    setState(() {
+                      _selectedValue = date;
+                    });
+                  },
+                ),
+              ],
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Button(
                 text: '+',
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {});
+                  _controller.animateToSelection();
+                },
               ),
               SizedBox(width: 20),
               Button(
