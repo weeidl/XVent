@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:xvent/services/auth.dart';
 import 'package:xvent/theme/colors.dart';
-import 'package:xvent/widgets/button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -29,10 +28,17 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.only(top: 48, bottom: 32),
               child: Row(
                 children: [
-                  SvgPicture.asset(
-                    'assets/logo_xvent.svg',
-                    width: 124,
-                    height: 26,
+                  InkWell(
+                    child: SvgPicture.asset(
+                      'assets/logo_xvent.svg',
+                      width: 124,
+                      height: 26,
+                    ),
+                    onTap: () async {
+                      await _auth.singOut().then((result) {
+                        Navigator.of(context).pop(true);
+                      });
+                    },
                   ),
                   Spacer(),
                   Icon(
@@ -99,24 +105,17 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
+            SizedBox(height: 24),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Button(
-                  text: '+',
-                  onPressed: () {
-                    setState(() {});
-                    _controller.animateToSelection();
-                  },
+                Text(
+                  'Категории',
+                  style: TextStyle(color: XVentColor.white, fontSize: 18),
                 ),
-                SizedBox(width: 20),
-                Button(
-                  text: 'Exit',
-                  onPressed: () async {
-                    await _auth.singOut().then((result) {
-                      Navigator.of(context).pop(true);
-                    });
-                  },
+                Spacer(),
+                Text(
+                  'Показать все',
+                  style: TextStyle(color: XVentColor.white, fontSize: 18),
                 ),
               ],
             ),

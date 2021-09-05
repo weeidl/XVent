@@ -9,4 +9,5 @@ class XVentColor {
   static final Color textColorHint = Color(0xFF737373);
   static final Color y = Color(0xFF283F4D);
   static final Color background = Color(0xFF102733);
+  static final Color buttonBar = Color(0xFF152F3E);
 }

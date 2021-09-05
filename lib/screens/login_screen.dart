@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:xvent/home.dart';
+import 'package:xvent/screens/home_screen.dart';
 import 'package:xvent/screens/register/auth.dart';
 import 'package:xvent/screens/register/login.dart';
 import 'package:xvent/theme/colors.dart';
@@ -61,7 +61,7 @@ class LoginScreen extends StatelessWidget {
                 buttonColor: XVentColor.yellow,
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
               ),
             ),
