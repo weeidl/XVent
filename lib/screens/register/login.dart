@@ -62,49 +62,64 @@ class _AuthLoginState extends State<AuthLogin> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: XVentColor.background,
-      body: Center(
-        child: Container(
-          padding: EdgeInsets.only(right: 28, left: 28),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                // Button(
-                //   text: 'Login',
-                //   onPressed: () {
-                //     Navigator.pop(context);
-                //   },
-                // ),
-                // SizedBox(height: 132),
-
-                Text(
-                  'ВОЙТИ',
-                  style: TextStyle(
-                      fontSize: 48,
-                      color: XVentColor.white,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 16),
-                Text(
-                  'Введите свой логин и пароль',
-                  style: TextStyle(color: XVentColor.white),
-                ),
-                SizedBox(height: 120),
-                _inputForm(Icon(Icons.email), 'Почта', _emailController, false),
-                SizedBox(height: 20),
-                _inputForm(
-                    Icon(Icons.password), 'Пароль', _passwordController, true),
-                SizedBox(height: 54),
-                Button(
-                  text: 'Войти',
-                  height: 60,
-                  width: double.infinity,
-                  onPressed: () {
-                    singInUser();
-                  },
-                ),
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 80),
+            Text(
+              'ВОЙТИ',
+              style: TextStyle(
+                  fontSize: 48,
+                  color: XVentColor.white,
+                  fontWeight: FontWeight.bold),
             ),
-          ),
+            SizedBox(height: 16),
+            Text(
+              'Введите свой логин и пароль',
+              style: TextStyle(color: XVentColor.white),
+            ),
+            SizedBox(height: 60),
+            SingleChildScrollView(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: XVentColor.white,
+                ),
+                margin: EdgeInsets.only(left: 16, right: 16),
+                width: double.infinity,
+                height: 442,
+                child: Column(
+                  children: [
+                    // Button(
+                    //   text: 'Login',
+                    //   onPressed: () {
+                    //     Navigator.pop(context);
+                    //   },
+                    // ),
+                    // SizedBox(height: 132),
+                    SizedBox(height: 120),
+                    _inputForm(
+                        Icon(Icons.email), 'Почта', _emailController, false),
+                    SizedBox(height: 20),
+                    _inputForm(Icon(Icons.password), 'Пароль',
+                        _passwordController, true),
+                    SizedBox(height: 54),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 12),
+                      child: Button(
+                        text: 'Войти',
+                        height: 60,
+                        width: double.infinity,
+                        onPressed: () {
+                          singInUser();
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
