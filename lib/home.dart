@@ -1,3 +1,4 @@
+import 'package:custom_bottom_sheet/custom_bottom_sheet.dart';
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -16,6 +17,17 @@ class _HomePageState extends State<HomePage> {
   DateTime _selectedValue = DateTime.now();
 
   final Auth _auth = Auth();
+
+  void customBottomSheet(BuildContext context) {
+    SlideDialog.showSlideDialog(
+      context: context,
+      backgroundColor: Colors.white,
+      pillColor: Colors.yellow,
+      transitionDuration: Duration(milliseconds: 300),
+      child: Text('Your code'),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Text(
-                        'Махачкала',
+                        'Казань',
                         style: TextStyle(color: XVentColor.white, fontSize: 18),
                       ),
                     ],
@@ -113,12 +125,18 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(color: XVentColor.white, fontSize: 18),
                 ),
                 Spacer(),
-                Text(
-                  'Показать все',
-                  style: TextStyle(color: XVentColor.white, fontSize: 18),
+                InkWell(
+                  onTap: () {
+                    customBottomSheet(context);
+                  },
+                  child: Text(
+                    'Показать все',
+                    style: TextStyle(color: XVentColor.white, fontSize: 18),
+                  ),
                 ),
               ],
             ),
+            SizedBox(height: 12),
             Expanded(
               child: Container(
                 width: double.infinity,
@@ -127,12 +145,12 @@ class _HomePageState extends State<HomePage> {
                     itemCount: 20,
                     itemBuilder: (context, index) {
                       return Card(
+                        color: XVentColor.yellow,
                         child: Container(
                           width: double.infinity,
                           height: 60,
                           child: ListTile(
-                            title: Text('$index'),
-                            subtitle: Text('20'),
+                            title: Text('WEEIDL $index'),
                           ),
                         ),
                       );
