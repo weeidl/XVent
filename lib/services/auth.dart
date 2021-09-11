@@ -66,7 +66,6 @@ class AuthServer {
   }
 
   //sing in with email & password
-
   //register with email & password
 
   //sing out
