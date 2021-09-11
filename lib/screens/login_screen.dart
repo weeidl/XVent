@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:xvent/screens/home_screen.dart';
 import 'package:xvent/screens/register/auth.dart';
 import 'package:xvent/screens/register/login.dart';
+import 'package:xvent/services/auth.dart';
 import 'package:xvent/theme/colors.dart';
 import 'package:xvent/widgets/button.dart';
 
@@ -12,6 +12,8 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AuthServer _auth = AuthServer();
+
     return Scaffold(
       backgroundColor: XVentColor.background,
       body: Center(
@@ -59,9 +61,15 @@ class LoginScreen extends StatelessWidget {
                 height: 60,
                 text: 'Войти как гость',
                 buttonColor: XVentColor.yellow,
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                onPressed: () async {
+                  dynamic result = await _auth.signInAnon();
+                  if (result == null) {
+                    print('error signing in');
+                  } else {
+                    print('signed in + ${result.uid}');
+                  }
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
               ),
             ),

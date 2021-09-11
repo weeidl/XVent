@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   DatePickerController _controller = DatePickerController();
   DateTime _selectedValue = DateTime.now();
 
-  final Auth _auth = Auth();
+  final AuthServer _auth = AuthServer();
 
   void customBottomSheet(BuildContext context) {
     SlideDialog.showSlideDialog(
@@ -47,9 +47,7 @@ class _HomePageState extends State<HomePage> {
                       height: 26,
                     ),
                     onTap: () async {
-                      await _auth.singOut().then((result) {
-                        Navigator.of(context).pop(true);
-                      });
+                      await _auth.singOut();
                     },
                   ),
                   Spacer(),

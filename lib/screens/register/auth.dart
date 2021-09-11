@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:xvent/services/auth.dart';
 import 'package:xvent/theme/colors.dart';
 import 'package:xvent/widgets/button.dart';
 
@@ -12,7 +11,7 @@ class _AuthRegisterState extends State<AuthRegister> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
-  final Auth _auth = Auth();
+  // final Auth _auth = Auth();
 
   String? _email;
   String? _password;
@@ -95,14 +94,14 @@ class _AuthRegisterState extends State<AuthRegister> {
   }
 
   void createUser() async {
-    dynamic result = await _auth.createNewUser(
-        _emailController.text, _passwordController.text);
-    if (result == null) {
-      print('Email is not valid');
-    } else {
-      print(result.toString());
-      _emailController.clear();
-      _passwordController.clear();
-    }
+    // dynamic result = await _auth.createNewUser(
+    //     _emailController.text, _passwordController.text);
+    // if (result == null) {
+    //   print('Email is not valid');
+    // } else {
+    //   print(result.toString());
+    //   _emailController.clear();
+    //   _passwordController.clear();
+    // }
   }
 }

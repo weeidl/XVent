@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:xvent/home.dart';
-import 'package:xvent/services/auth.dart';
 import 'package:xvent/theme/colors.dart';
 import 'package:xvent/widgets/button.dart';
 
@@ -13,7 +11,7 @@ class _AuthLoginState extends State<AuthLogin> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
-  final Auth _auth = Auth();
+  // final Auth _auth = Auth();
 
   String? _email;
   String? _password;
@@ -111,7 +109,10 @@ class _AuthLoginState extends State<AuthLogin> {
                         height: 60,
                         width: double.infinity,
                         onPressed: () {
-                          singInUser();
+                          print(_emailController.text);
+                          print(_passwordController.text);
+                          // print(_passwordController);
+                          // singInUser();
                         },
                       ),
                     ),
@@ -125,17 +126,17 @@ class _AuthLoginState extends State<AuthLogin> {
     );
   }
 
-  void singInUser() async {
-    dynamic authResult =
-        await _auth.loginUser(_emailController.text, _passwordController.text);
-    if (authResult == null) {
-      print('Sing in error');
-    } else {
-      // _emailController.clear();
-      // _passwordController.clear();
-      print('Sing in Successful');
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => HomePage()));
-    }
-  }
+  // void singInUser() async {
+  //   dynamic authResult =
+  //       await _auth.loginUser(_emailController.text, _passwordController.text);
+  //   if (authResult == null) {
+  //     print('Sing in error');
+  //   } else {
+  //     // _emailController.clear();
+  //     // _passwordController.clear();
+  //     print('Sing in Successful');
+  //     Navigator.push(
+  //         context, MaterialPageRoute(builder: (context) => HomePage()));
+  //   }
+  // }
 }
